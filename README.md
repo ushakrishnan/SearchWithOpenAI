@@ -6,6 +6,7 @@ This project will help you learn the basics to -
 - Create a webpage to prompt for user input, query the Chroma database and ask OpenAI LLM for response. 
 - Bonus: Get details on cost of the call (AI tokens and cost) and also get similar information document search on the store.
 
+Link to the video recording - https://youtu.be/qTZMUaFU1Sc
 
 # Setup the sample
 To use the script, you will need to follow these steps:
@@ -23,7 +24,7 @@ To use the script, you will need to follow these steps:
 # What to expect
 Streamlit will spin up a page that will look like this
 <img src=/assets/start.png>
-Go ahead and type in the keyword / subject for which you would like this program to do research on wikipedia and write up the script for your video and press return / enter.  After a few seconds, you will see details on the page for your quick start script including the research used from Wikipedia search.
+Now go ahead, and ask you questions about the two "State of the Union" speech pdfs you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
 <img src=/assets/page.png height=400>
 
 # Packages used
