@@ -1,3 +1,6 @@
+import chromadb
+import os
+from chromadb.config import Settings
 from langchain.embeddings import HuggingFaceEmbeddings, SentenceTransformerEmbeddings 
 from langchain.vectorstores import Chroma
 from langchain.document_loaders import PyPDFDirectoryLoader, DirectoryLoader, TextLoader
@@ -44,3 +47,18 @@ def addtostoretxt(folder_name, collection_name='db', persist_directory="db/"):
     store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
     store.persist()
     return(store)
+
+def deletestore(collection_name='db', persist_directory="db/"):
+    client = chromadb.Client(Settings(persist_directory=persist_directory))
+    try:
+        client.delete_collection(collection_name)
+    except:
+        print("Has the collection been already deleted?")
+    val = client.reset()
+    try:
+        os.rmdir("db/index")  
+        os.remove("db/chroma-collections.parquet")  
+        os.remove("db/chroma-embeddings.parquet")
+    except:
+        print("Have the files been cleanedup already?")
+    return val

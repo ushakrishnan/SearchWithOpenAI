@@ -7,27 +7,28 @@ This project will help you learn the basics to -
 - Create a webpage to prompt for user input, query the Chroma database and ask OpenAI LLM for response. 
 - Bonus: Get details on cost of the call (AI tokens and cost) and also get similar information document search on the store.
 
-Link to the video recording - https://youtu.be/qTZMUaFU1Sc
+Link to the video recording - https://youtu.be/q27RbxcfGvE
 
 # Setup the sample
 To use the script, you will need to follow these steps:
 - Clone the repository via `git clone https://github.com/ushakrishnan/SearchWithOpenAI.git` and `cd SearchWithOpenAI` into the cloned repository.
 - Install the required packages: `pip install -r requirements.txt`
 - Copy the .env.template file to .env: `cp .env.template .env`. This is where you will set the following variables.
-- Set your OpenAI API key in the OPENAI_API_KEY
+- Set your OpenAI API key in the OPENAI_API_KEY and Azure OpenAI details in the env file
    
 # Run the sample
-- Rebuild index (feel free to add more PDF or TXT files into the directory `sou` for them to be added to the index)
-  - If you would like to clean up your db from earlier runs - `rm -r db`
-  - Setup Chroma store and load embeddings / index into store: `python3 loaddocs.py`
-- Run the script: `streamlit run app.py`
-- You can query what the ChromaDB / store holds: `python3 querystore.py`
+- Run the script: `streamlit run Home.py`
+- You will be able to from the web interface 
+  - Clean up the Chroma vector database
+  - Upload additional pdf / txt documents for adding to index / querying
+  - Create fresh index and populate the vector store after clean up
+  - Have a choice of using OpenAI or Azure OpenAI for doing your searches on the documents
 
 # What to expect
 Streamlit will spin up a page that will look like this
-<img src=/assets/start.png>
+<img src="/assets/start.png" height=400>
 Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
-<img src=/assets/page.png height=400>
+<img src="/assets/page.png" height=400>
 
 # Packages used
 - Streamlit - https://github.com/streamlit/streamlit
