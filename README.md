@@ -16,7 +16,7 @@ To use the script, you will need to follow these steps:
 - Set your OpenAI API key in the OPENAI_API_KEY
    
 # Run the sample
-- Rebuild index
+- Rebuild index (feel free to add more documents into the directory `sou` for them to be added to the index)
   - If you would like to clean up your db from earlier runs - `rm -r db`
   - Setup Chroma store and load embeddings / index into store: `python3 loaddocs.py`
 - Run the script: `streamlit run app.py`
