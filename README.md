@@ -33,5 +33,8 @@ Now go ahead, and ask you questions about the two "State of the Union" speech pd
 - OpenAI - https://github.com/openai/openai-python
 - Chroma - https://github.com/chroma-core/chroma
 - TikToken - https://github.com/openai/tiktoken
+- pypdf - https://github.com/py-pdf/pypdf
+- Unstructured - https://github.com/Unstructured-IO/unstructured
+- Cython - https://github.com/cython/cython
 
 Have fun creating making your own searchable library of PDFs.

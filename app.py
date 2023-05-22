@@ -81,6 +81,5 @@ if prompt:
             # With a streamlit expander  
             with st.expander("Source: " + str(source) + " - Page: " + str(page_num) + "; Similarity Score: " + str(score) ):
                 st.write(doc[0].page_content)
-                #st.write("Source: " + str(source) + " - Page: " + str(page_num) + "; Similarity Score: " + str(score) )
     except:
         print("unable to get source document detail")

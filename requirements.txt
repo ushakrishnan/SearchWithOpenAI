@@ -7,4 +7,3 @@ pypdf==3.8.1
 pycryptodome==3.18.0
 unstructured==0.6.8
 Cython==0.29.34
-llama_index==0.6.9
