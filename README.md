@@ -16,7 +16,7 @@ To use the script, you will need to follow these steps:
 - Set your OpenAI API key in the OPENAI_API_KEY
    
 # Run the sample
-- Rebuild index (feel free to add more documents into the directory `sou` for them to be added to the index)
+- Rebuild index (feel free to add more PDFs ONLY into the directory `sou` for them to be added to the index)
   - If you would like to clean up your db from earlier runs - `rm -r db`
   - Setup Chroma store and load embeddings / index into store: `python3 loaddocs.py`
 - Run the script: `streamlit run app.py`
@@ -34,4 +34,4 @@ Now go ahead, and ask you questions about the two "State of the Union" speech pd
 - Chroma - https://github.com/chroma-core/chroma
 - TikToken - https://github.com/openai/tiktoken
 
-Have fun creating your YouTube video.
+Have fun creating making your own searchable library of PDFs.
