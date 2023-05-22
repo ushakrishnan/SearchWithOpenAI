@@ -21,6 +21,7 @@ To use the script, you will need to follow these steps:
   - If you would like to clean up your db from earlier runs - `rm -r db`
   - Setup Chroma store and load embeddings / index into store: `python3 loaddocs.py`
 - Run the script: `streamlit run app.py`
+- You can query what the ChromaDB / store holds: `python querystore.py`
 
 # What to expect
 Streamlit will spin up a page that will look like this
