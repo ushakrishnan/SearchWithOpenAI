@@ -1,6 +1,6 @@
 from langchain.embeddings import HuggingFaceEmbeddings, SentenceTransformerEmbeddings 
 from langchain.vectorstores import Chroma
-from langchain.document_loaders import PyPDFDirectoryLoader
+from langchain.document_loaders import PyPDFDirectoryLoader, DirectoryLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 
 
@@ -20,7 +20,7 @@ def getfromstore(collection_name="tdocsfolder"):
 
 
 
-def addtostore(folder_name, collection_name='db', persist_directory="db/"):
+def addtostorepdf(folder_name, collection_name='db', persist_directory="db/"):
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     loader = PyPDFDirectoryLoader(folder_name + "/")
     # Split pages from pdf (use load and split for pages, use load to use document chunks)
@@ -32,4 +32,15 @@ def addtostore(folder_name, collection_name='db', persist_directory="db/"):
     #----two additional to break into smaller chunks end-----
     # Load documents into vector database aka ChromaDB
     store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
+    store.persist()
+    return(store)
+
+def addtostoretxt(folder_name, collection_name='db', persist_directory="db/"):
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    loader = DirectoryLoader(folder_name + "/", glob="**/*.txt",loader_cls=TextLoader, silent_errors=True)
+    pages = loader.load()
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=20)
+    docs = text_splitter.split_documents(pages)
+    store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
+    store.persist()
     return(store)

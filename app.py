@@ -18,7 +18,7 @@ from langchain.document_loaders import PyPDFLoader
 # Import chroma as the vector store 
 from langchain.vectorstores import Chroma
 
-from common.funs import getfromstore, addtostore
+from common.funs import getfromstore
 
 # Import vector store stuff
 from langchain.agents.agent_toolkits import (
@@ -76,7 +76,10 @@ if prompt:
         st.write("This information was found in:")
         for doc in search:
             score = doc[1]
-            page_num = doc[0].metadata['page']
+            try:
+                page_num = doc[0].metadata['page']
+            except:
+                page_num = "txt snippets"
             source = doc[0].metadata['source']
             # With a streamlit expander  
             with st.expander("Source: " + str(source) + " - Page: " + str(page_num) + "; Similarity Score: " + str(score) ):
