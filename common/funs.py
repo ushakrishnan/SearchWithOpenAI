@@ -29,24 +29,32 @@ def addtostorepdf(folder_name, collection_name='db', persist_directory="db/"):
     # Split pages from pdf (use load and split for pages, use load to use document chunks)
     #pages = loader.load_and_split()
     pages = loader.load()
-    #----two additional to break into smaller chunks start-----
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0, separators=[" ", ",", "\n"])
-    docs = text_splitter.split_documents(pages)
-    #----two additional to break into smaller chunks end-----
-    # Load documents into vector database aka ChromaDB
-    store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
-    store.persist()
-    return(store)
+    print("Number of PDF pages to be indexed: " + str(len(pages)))
+    if len(pages) > 0:
+        #----two additional to break into smaller chunks start-----
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0, separators=[" ", ",", "\n"])
+        docs = text_splitter.split_documents(pages)
+        #----two additional to break into smaller chunks end-----
+        # Load documents into vector database aka ChromaDB
+        store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
+        store.persist()
+        return(store)
+    else:
+        return()
 
 def addtostoretxt(folder_name, collection_name='db', persist_directory="db/"):
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     loader = DirectoryLoader(folder_name + "/", glob="**/*.txt",loader_cls=TextLoader, silent_errors=True)
     pages = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=20)
-    docs = text_splitter.split_documents(pages)
-    store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
-    store.persist()
-    return(store)
+    print("Number of TXT documents to be indexed: " + str(len(pages)))
+    if len(pages) > 0:
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=20)
+        docs = text_splitter.split_documents(pages)
+        store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
+        store.persist()
+        return(store)
+    else:
+        return()
 
 def deletestore(collection_name='db', persist_directory="db/"):
     client = chromadb.Client(Settings(persist_directory=persist_directory))
