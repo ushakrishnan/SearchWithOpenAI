@@ -9,7 +9,7 @@ This project will help you learn the basics to -
 - Search with either OpenAI or Azure OpenAI.  You will use the "Which API would you like to use?" page to choose the API to use.
 - Bonus: Get details on cost of the call (AI tokens and cost) and also get similar information document search on the store.
 
-Link to the video recording - https://youtu.be/q27RbxcfGvE
+Link to the video recording - https://youtu.be/VaShd-0UoGg
 
 # Setup the sample
 To use the script, you will need to follow these steps:
