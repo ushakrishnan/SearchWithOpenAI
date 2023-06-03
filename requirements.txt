@@ -1,9 +1,11 @@
-langchain==0.0.174
-streamlit==1.22.0
-openai==0.27.2
+langchain==0.0.187
+streamlit==1.23.1
+openai==0.27.7
 chromadb==0.3.23
 tiktoken==0.3.3
 pypdf==3.8.1
 pycryptodome==3.18.0
 unstructured==0.6.8
 Cython==0.29.34
+faiss-cpu==1.7.4
+st-pages==0.4.1

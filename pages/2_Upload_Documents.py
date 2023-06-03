@@ -1,8 +1,10 @@
 # Bring in streamlit for UI/app interface
 import streamlit as st
 import os
+from st_pages import add_indentation
 
-st.title("🦜🔗🤗 Upload Documents for Indexing")
+st.title(":zap: Upload Documents for Indexing")
+add_indentation()
 
 uploaded_files = st.file_uploader("Select PDF or TXT files to upload", accept_multiple_files=True,type=["txt","PDF"],)
 for uploaded_file in uploaded_files:

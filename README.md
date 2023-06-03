@@ -1,10 +1,12 @@
 # 🦜🔗🤗  Search with LangChain, HuggingFace embeddings and OpenAI
 
 This project will help you learn the basics to -
-- Index multiple documents in a repository using HuggingFace embeddings. 
-- Provide directory / folder name where the pdf and txt files are and all pdf and txt files will be indexed.
-- Save them in Chroma for recall. 
-- Create a webpage to prompt for user input, query the Chroma database and ask OpenAI LLM for response. 
+- Index multiple documents in a repository using HuggingFace embeddings.
+- Save the indexes in Chroma &  FAISS for recall.
+- Cleanup / delete the indexes to start fresh.\
+- Query the FAISS and Chroma index / db.
+- Search using embeddings (without having to sign up for any OpenAI) for similarity text snippets.
+- Search with either OpenAI or Azure OpenAI.  You will use the "Which API would you like to use?" page to choose the API to use.
 - Bonus: Get details on cost of the call (AI tokens and cost) and also get similar information document search on the store.
 
 Link to the video recording - https://youtu.be/q27RbxcfGvE
@@ -18,17 +20,10 @@ To use the script, you will need to follow these steps:
    
 # Run the sample
 - Run the script: `streamlit run Home.py`
-- You will be able to from the web interface 
-  - Clean up the Chroma vector database
-  - Upload additional pdf / txt documents for adding to index / querying
-  - Create fresh index and populate the vector store after clean up
-  - Have a choice of using OpenAI or Azure OpenAI for doing your searches on the documents
 
 # What to expect
 Streamlit will spin up a page that will look like this
-
-<img src="/assets/start.png" height=400>
-
+<img src="/assets/start.gif" height=400>
 Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
 
 <img src="/assets/page.png" height=400>

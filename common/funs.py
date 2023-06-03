@@ -5,12 +5,7 @@ from langchain.embeddings import HuggingFaceEmbeddings, SentenceTransformerEmbed
 from langchain.vectorstores import Chroma
 from langchain.document_loaders import PyPDFDirectoryLoader, DirectoryLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
-
-
-def loadstore(val):
-    return("hello " + val)
-
-
+from langchain.vectorstores import FAISS
 
 def getfromstore(collection_name="tdocsfolder"):
     # Equivalent to SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -21,7 +16,12 @@ def getfromstore(collection_name="tdocsfolder"):
     store = Chroma(collection_name=collection_name, embedding_function=embeddings, persist_directory="db/")
     return(store)
 
-
+def getfaissdata():
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    storepdf = FAISS.load_local("./faiss/faiss_indexpdf", embeddings)
+    storetxt = FAISS.load_local("./faiss/faiss_indextxt", embeddings)
+    storepdf.merge_from(storetxt)
+    return storepdf
 
 def addtostorepdf(folder_name, collection_name='db', persist_directory="db/"):
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -38,6 +38,8 @@ def addtostorepdf(folder_name, collection_name='db', persist_directory="db/"):
         # Load documents into vector database aka ChromaDB
         store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
         store.persist()
+        fstore = FAISS.from_documents(docs,embedding=embeddings)
+        fstore.save_local("./faiss/faiss_indexpdf")
         return(store)
     else:
         return()
@@ -52,6 +54,8 @@ def addtostoretxt(folder_name, collection_name='db', persist_directory="db/"):
         docs = text_splitter.split_documents(pages)
         store = Chroma.from_documents(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
         store.persist()
+        fstore = FAISS.from_documents(docs,embedding=embeddings)
+        fstore.save_local("./faiss/faiss_indextxt")
         return(store)
     else:
         return()
@@ -67,6 +71,8 @@ def deletestore(collection_name='db', persist_directory="db/"):
         os.rmdir("db/index")  
         os.remove("db/chroma-collections.parquet")  
         os.remove("db/chroma-embeddings.parquet")
+        os.rmdir("faiss/faiss_indexpdf")  
+        os.rmdir("faiss/faiss_indextxt")  
     except:
         print("Have the files been cleanedup already?")
     return val

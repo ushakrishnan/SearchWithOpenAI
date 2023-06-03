@@ -1,8 +1,10 @@
 # Bring in streamlit for UI/app interface
 import streamlit as st
 from common.funs import getfromstore
+from st_pages import add_indentation
 
-st.title("🦜🔗🤗  Documents Persisted in Vector Database")
+st.title(":green_book: Documents Persisted in Chroma")
+add_indentation()
 
 #get document stores
 

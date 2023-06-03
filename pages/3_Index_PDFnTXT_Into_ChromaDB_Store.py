@@ -1,8 +1,11 @@
 # Bring in streamlit for UI/app interface
 import streamlit as st
 from common.funs import addtostorepdf, addtostoretxt, getfromstore
+from st_pages import add_indentation
 
-st.title("🦜🔗🤗 Index content and metadata into ChromaDB Store")
+st.title(":pencil: Index content and metadata into ChromaDB Store")
+st.write("The documents in 'sou' folder will be indexed into both Chroma and FAISS.")
+add_indentation()
 
 def start_capture():
     #load documents into store
