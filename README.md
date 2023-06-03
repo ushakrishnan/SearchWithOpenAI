@@ -1,4 +1,4 @@
-# 🦜🔗🤗  Search with LangChain, HuggingFace embeddings and OpenAI
+# 🦜🔗🤗  Search with LangChain, HuggingFace embeddings, Chroma, FAISS, Azure OpenAI and OpenAI
 
 This project will help you learn the basics to -
 - Index multiple documents in a repository using HuggingFace embeddings.
