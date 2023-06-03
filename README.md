@@ -3,7 +3,7 @@
 This project will help you learn the basics to -
 - Index multiple documents in a repository using HuggingFace embeddings.
 - Save the indexes in Chroma &  FAISS for recall.
-- Cleanup / delete the indexes to start fresh.\
+- Cleanup / delete the indexes to start fresh.
 - Query the FAISS and Chroma index / db.
 - Search using embeddings (without having to sign up for any OpenAI) for similarity text snippets.
 - Search with either OpenAI or Azure OpenAI.  You will use the "Which API would you like to use?" page to choose the API to use.
