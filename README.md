@@ -41,3 +41,17 @@ Now go ahead, and ask you questions about the two "State of the Union" speech pd
 - Cython - https://github.com/cython/cython
 
 Have fun creating making your own searchable library of PDFs.
+
+
+## Contributing
+
+This repository is for educational purposes only. However, if you find an error in the code, feel free to open an issue or submit a pull request.
+
+
+## Issues
+
+If you encounter any issues or have suggestions for improvements, please open an issue in the GitHub repository. We appreciate your feedback and will do our best to address any problems.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Feel free to modify and distribute the code as per the terms of the license.
