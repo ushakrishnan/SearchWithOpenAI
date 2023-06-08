@@ -33,13 +33,14 @@ add_indentation()
 
 # Set this to `azure`
 openai_api_type = os.environ["OPENAI_API_TYPE"] = "azure"
-openai_api_version = os.environ["OPENAI_API_VERSION"] = os.environ["AOAI_OPENAI_API_VERSION"]
+openai_api_version = os.environ["OPENAI_API_VERSION"] = os.environ["AOAI_OPENAI_API_COMP_VERSION"]
 openai_api_base = os.environ["OPENAI_API_BASE"] = os.environ["AOAI_OPENAI_API_BASE"]
 openai_api_key = os.environ["OPENAI_API_KEY"] = os.environ["AOAI_OPENAI_API_KEY"]
+openai_model =  os.environ["AOAI_OPENAI_API_COMP_MODEL"]
 
 # Create instance of OpenAI LLM
 #llm = AzureOpenAI(openai_api_base=openai_api_base , model="text-davinci-003", temperature=0.1, verbose=True, deployment_name="text-davinci-003", openai_api_key=openai_api_key)
-llm = AzureOpenAI(openai_api_base=openai_api_base , model="text-davinci-003", temperature=0.1, verbose=True, deployment_name="text-davinci-003", openai_api_key=openai_api_key)
+llm = AzureOpenAI(openai_api_base=openai_api_base , model=openai_model, temperature=0.1, verbose=True, deployment_name=openai_model, openai_api_key=openai_api_key)
 
 #you can choose the index you would like to use by choosing from the two options below
 #store = getfromstore(collection_name="sou_coll")

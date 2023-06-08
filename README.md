@@ -15,8 +15,9 @@ Link to the video recording - https://youtu.be/VaShd-0UoGg
 To use the script, you will need to follow these steps:
 - Clone the repository via `git clone https://github.com/ushakrishnan/SearchWithOpenAI.git` and `cd SearchWithOpenAI` into the cloned repository.
 - Install the required packages: `pip install -r requirements.txt`
+- Run `playwright install` to install playwright
 - Copy the .env.template file to .env: `cp .env.template .env`. This is where you will set the following variables.
-- Set your OpenAI API key in the OPENAI_API_KEY and Azure OpenAI details in the env file
+- Set your OpenAI API key in the OPENAI_API_KEY and Azure OpenAI details in the env file.  
    
 # Run the sample
 - Run the script: `streamlit run Home.py`
@@ -24,11 +25,13 @@ To use the script, you will need to follow these steps:
 # What to expect
 Streamlit will spin up a page that will look like this
 
-<img src="/assets/start.gif" height=500>
+<img src="/assets/start.gif" height=400>
 
 Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
-
 <img src="/assets/page.png" height=400>
+The new feature - Your own ChatGPT will be as below
+<img src="/assets/chatgpt.png" height=400>
+
 
 # Packages used
 - Streamlit - https://github.com/streamlit/streamlit

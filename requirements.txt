@@ -10,3 +10,4 @@ Cython==0.29.34
 faiss-cpu==1.7.4
 st-pages==0.4.1
 streamlit-chat==0.0.2.2
+playwright==1.34.0

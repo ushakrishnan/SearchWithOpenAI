@@ -20,6 +20,7 @@ def aoai():
             Page("pages/40_EmbeddingsSearch_Chroma_and_FAISS.py", "Embedding Search - Chroma & FAISS", ":blue_book:"),
             Section(name="OpenAI Searches", icon=":bulb:"),
             Page("pages/200_Q&A_with_Azure_Open_AI.py", "Q&A with Azure OpenAI", ":mag:"),
+            Page("pages/230_Talk_with_Azure_Open_AI.py", "ChatGPT Agent - Azure OpenAI", ":robot_face:"),
             Page("pages/5000_Feedback.py", "Feedback", ":mailbox_with_mail:", in_section=False),
         ]
     )
@@ -40,6 +41,7 @@ def aoi():
             Page("pages/40_EmbeddingsSearch_Chroma_and_FAISS.py", "Embedding Search - Chroma & FAISS", ":blue_book:"),
             Section(name="OpenAI Searches", icon=":bulb:"),
             Page("pages/100_Q&A_with_Open_AI.py", "Q&A with OpenAI", ":mag:"),
+            Page("pages/130_Talk_with_Open_AI.py", "ChatGPT Agent - OpenAI", ":robot_face:"),
             Page("pages/5000_Feedback.py", "Feedback", ":mailbox_with_mail:", in_section=False),
         ]
     )

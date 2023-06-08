@@ -6,6 +6,7 @@ from langchain.vectorstores import Chroma
 from langchain.document_loaders import PyPDFDirectoryLoader, DirectoryLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
+import streamlit as st
 
 def getfromstore(collection_name="tdocsfolder"):
     # Equivalent to SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -60,6 +61,23 @@ def addtostoretxt(folder_name, collection_name='db', persist_directory="db/"):
     else:
         return()
 
+def addtochattxt(prompt, collection_name='chat', persist_directory="chat/"):
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+    docs = text_splitter.split_text(prompt)
+    store = Chroma.from_texts(docs, embedding=embeddings, collection_name=collection_name, persist_directory=persist_directory)
+    store.persist()
+    return(store)
+
+def getchatstore(collection_name="chat"):
+    # Equivalent to SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    #embeddings = SentenceTransformerEmbeddings('all-MiniLM-L6-v2')
+    #chroma uses by default
+    #sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
+    store = Chroma(collection_name=collection_name, embedding_function=embeddings, persist_directory="chat/")
+    return(store)
+
 def deletestore(collection_name='db', persist_directory="db/"):
     client = chromadb.Client(Settings(persist_directory=persist_directory))
     try:
@@ -76,3 +94,10 @@ def deletestore(collection_name='db', persist_directory="db/"):
     except:
         print("Have the files been cleanedup already?")
     return val
+
+def get_conversation_string():
+    conversation_string = ""
+    for i in range(len(st.session_state['responses'])-1):
+        conversation_string += "Human: "+st.session_state['requests'][i] + "\n"
+        conversation_string += "Bot: "+ st.session_state['responses'][i+1] + "\n"
+    return conversation_string
