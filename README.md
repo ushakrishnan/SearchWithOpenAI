@@ -13,7 +13,7 @@ Link to the video recording - https://youtu.be/VaShd-0UoGg
 
 # Features
 1. Clean up indexes, add your documents to store (options: FAISS / Chroma / both)
-2. Choose your OpenAI (options: OpenAI / Azure OpenAI) [See how](#2)
+2. Choose your OpenAI (options: OpenAI / Azure OpenAI) [See how](#Choose-your-OpenAI-(options:-OpenAI-/-Azure-OpenAI))
 3. Q&A from the set of uploaded documents (options: FAISS / Chroma)
 4. Your own chatgpt (options: prompt engineer with your customized prompts)
 5. Search a specific website / whole web and feed to OpenAI for extracting informaiton (options: OpenAI / Azure OpenAI :: sample uses Bing Search)
@@ -29,8 +29,7 @@ To use the script, you will need to follow these steps:
 # Run the sample
 - Run the script: `streamlit run Home.py`
 
-### 2
-# 2. Choose your OpenAI (options: OpenAI / Azure OpenAI)
+#### Choose your OpenAI (options: OpenAI / Azure OpenAI)
 <img src="/assets/choice.gif" >
 
 # 3. Q&A from the set of uploaded documents (options: FAISS / Chroma)
