@@ -29,18 +29,20 @@ To use the script, you will need to follow these steps:
 # Run the sample
 - Run the script: `streamlit run Home.py`
 
-# What to expect
-Streamlit will spin up a page that will look like this
+# 2. Choose your OpenAI (options: OpenAI / Azure OpenAI)
+<img src="/assets/choice.gif" >
 
-<img src="/assets/start.gif" height=500>
-
+# 3. Q&A from the set of uploaded documents (options: FAISS / Chroma)
 Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
-
 <img src="/assets/qanda.gif"> 
 
-The new feature - Your own ChatGPT will be as below
-<img src="/assets/chatgpt.gif" height=500>
+# 4. Your own chatgpt (options: prompt engineer with your customized prompts)
+NEW Sample - Your own ChatGPT will be as below
+<img src="/assets/chatgpt.gif">
 
+# 5. Search a specific website / whole web and feed to OpenAI for extracting informaiton (options: OpenAI / Azure OpenAI :: sample uses Bing Search)
+New Sample - search your own website of the whole web.   Feed the results to ChatGPT for summarizing or answering questions.
+<img src="/assets/searchweb.gif">
 
 # Packages used
 - Streamlit - https://github.com/streamlit/streamlit
