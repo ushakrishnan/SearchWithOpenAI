@@ -56,7 +56,10 @@ To use the script, you will need to follow these steps:
 - pypdf - https://github.com/py-pdf/pypdf
 - Unstructured - https://github.com/Unstructured-IO/unstructured
 - Cython - https://github.com/cython/cython
-
+- Faiss - https://github.com/facebookresearch/faiss
+- Streamlit-Pages - https://github.com/blackary/st_pages
+- Requests - https://pypi.org/project/requests/
+- 
 Have fun creating making your own searchable library of PDFs.
 
 
