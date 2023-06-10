@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "webAppName": {
+            "value": "streamlit-azure-app-services-example"
+        },
+        "sku": {
+            "value": "B1"
+        },
+        "linuxFxVersion": {
+            "value": "PYTHON|3.11.2"
+        },
+        "repoUrl": {
+            "value": "https://github.com/ushakrishnan/SearchWithOpenAI.git"
+        },
+        "repoBranch": {
+            "value": "main"
+        }
+    }
+}
