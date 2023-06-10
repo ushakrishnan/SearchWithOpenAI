@@ -56,7 +56,7 @@ response_container = st.container()
 textcontainer = st.container()
 
 with textcontainer:
-    prompt = st.text_input("Let's talk: ", key="input", placeholder="Let's start, type here . . . ")
+    prompt = st.text_input("Let's talk:", key="input", placeholder="Let's start, type here . . . ")
     if prompt:
         with get_openai_callback() as cb:
             conversation_string = get_conversation_string()

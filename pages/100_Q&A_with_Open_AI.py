@@ -56,7 +56,9 @@ toolkit = VectorStoreToolkit(vectorstore_info=vectorstore_info, llm=llm)
 agent_executor = create_vectorstore_agent(
     llm=llm,
     toolkit=toolkit,
-    verbose=True
+    verbose=True,
+    max_iterations=2, 
+    early_stopping_method="generate"
 )
 
 st.title("🦜🔗🤗 What would you like to know?")

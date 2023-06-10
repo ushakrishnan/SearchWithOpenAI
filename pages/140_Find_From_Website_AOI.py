@@ -30,7 +30,7 @@ openai_api_key = os.environ["OPENAI_API_KEY"] = os.environ["OAI_OPENAI_API_KEY"]
 llm = OpenAI(temperature=0.1, verbose=True, model="text-davinci-002", openai_api_base=openai_api_base,  openai_api_key=openai_api_key )
 
 st.title("🦜🔗🤗 What would you like to know?")
-st.write("This sample uses **OpenAI** and **Bing Search**")
+st.write("This sample uses **OpenAI and Bing Search**")
 # Create a text input box for the user
 prompt = st.text_input('Input your prompt here: ex. what are the ingredients for fortify alchemy potion')
 website = st.text_input('Input the web site to search: ex. https://en.uesp.net/wiki/Skyrim:Potions. If empty, all of web is searched.')
@@ -54,6 +54,8 @@ if len(prompt) > 0:
                 llm=llm,
                 toolkit=toolkit,
                 verbose=True,
+                max_iterations=2, 
+                early_stopping_method="generate"
             )
             response = agent_executor.run(prompt)
             # ...and write it out to the screen
