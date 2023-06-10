@@ -6,7 +6,26 @@ from langchain.vectorstores import Chroma
 from langchain.document_loaders import PyPDFDirectoryLoader, DirectoryLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
+from langchain.retrievers import AzureCognitiveSearchRetriever
 import streamlit as st
+#!/usr/bin/env python3
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
+
+def getfromacs():
+    service_name = os.environ["AZURE_COGNITIVE_SEARCH_SERVICE_NAME"]
+    index_name = os.environ["AZURE_COGNITIVE_SEARCH_INDEX_NAME"]
+    api_key = os.environ["AZURE_COGNITIVE_SEARCH_API_KEY"]
+    retriever = AzureCognitiveSearchRetriever(content_key="content", service_name=service_name, index_name=index_name, api_key=api_key)
+    docs = retriever.get_relevant_documents("*")
+    if len(docs) > 0:
+        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        fstore = FAISS.from_documents(docs,embedding=embeddings)
+        fstore.save_local("./faiss/faiss_acs")
+        return(fstore)
+    else:
+        return()
 
 def getfromstore(collection_name="tdocsfolder"):
     # Equivalent to SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
