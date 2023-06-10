@@ -13,10 +13,10 @@ Link to the video recording - https://youtu.be/VaShd-0UoGg
 
 # Features
 1. Clean up indexes, add your documents to store (options: FAISS / Chroma / both)
-2. Choose your OpenAI (options: OpenAI / Azure OpenAI) [See how](#Choose-your-OpenAI-(options:-OpenAI-/-Azure-OpenAI))
-3. Q&A from the set of uploaded documents (options: FAISS / Chroma)
-4. Your own chatgpt (options: prompt engineer with your customized prompts)
-5. Search a specific website / whole web and feed to OpenAI for extracting informaiton (options: OpenAI / Azure OpenAI :: sample uses Bing Search)
+2. Choose your OpenAI (options: OpenAI / Azure OpenAI) [See how](#choose-your-openai)
+3. Q&A from the set of uploaded documents (options: FAISS / Chroma) [See how](#q-and-a-from-the-set-of-uploaded-documents)
+4. Your own chatgpt (options: prompt engineer with your customized prompts) [See how](#your-own-chatgpt)
+5. Search a specific website / whole web and feed to OpenAI for extracting informaiton (options: OpenAI / Azure OpenAI :: sample uses Bing Search) [See how](#search-web-for-information)
 
 # Setup the sample
 To use the script, you will need to follow these steps:
@@ -26,21 +26,21 @@ To use the script, you will need to follow these steps:
 - Copy the .env.template file to .env: `cp .env.template .env`. This is where you will set the following variables.
 - Set your OpenAI API key in the OPENAI_API_KEY and Azure OpenAI details in the env file.  
    
-# Run the sample
+## Run the sample
 - Run the script: `streamlit run Home.py`
 
-#### Choose your OpenAI (options: OpenAI / Azure OpenAI)
+#### Choose your OpenAI
 <img src="/assets/choice.gif" >
 
-# 3. Q&A from the set of uploaded documents (options: FAISS / Chroma)
+### Q and A from the set of uploaded documents
 Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
 <img src="/assets/qanda.gif"> 
 
-# 4. Your own chatgpt (options: prompt engineer with your customized prompts)
+### Your own chatgpt
 NEW Sample - Your own ChatGPT will be as below
 <img src="/assets/chatgpt.gif">
 
-# 5. Search a specific website / whole web and feed to OpenAI for extracting informaiton (options: OpenAI / Azure OpenAI :: sample uses Bing Search)
+### Search web for information
 New Sample - search your own website of the whole web.   Feed the results to ChatGPT for summarizing or answering questions.
 <img src="/assets/searchweb.gif">
 
