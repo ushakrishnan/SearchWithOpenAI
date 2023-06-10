@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
+# Import os to set API key
+import os
+# Import OpenAI as main LLM service
+from langchain.llms import AzureOpenAI
+from langchain.callbacks import get_openai_callback
+from common.webcatcher import searchweb
+# Bring in streamlit for UI/app interface
+import streamlit as st
+
+# Import vector store stuff
+from langchain.agents.agent_toolkits import (
+    create_vectorstore_agent,
+    VectorStoreToolkit,
+    VectorStoreInfo
+)
+from st_pages import add_indentation
+
+add_indentation()
+
+# Set this to `azure`
+openai_api_type = os.environ["OPENAI_API_TYPE"] = "azure"
+openai_api_version = os.environ["OPENAI_API_VERSION"] = os.environ["AOAI_OPENAI_API_COMP_VERSION"]
+openai_api_base = os.environ["OPENAI_API_BASE"] = os.environ["AOAI_OPENAI_API_BASE"]
+openai_api_key = os.environ["OPENAI_API_KEY"] = os.environ["AOAI_OPENAI_API_KEY"]
+openai_model =  os.environ["AOAI_OPENAI_API_COMP_MODEL"]
+
+# Create instance of OpenAI LLM
+#llm = AzureOpenAI(openai_api_base=openai_api_base , model="text-davinci-003", temperature=0.1, verbose=True, deployment_name="text-davinci-003", openai_api_key=openai_api_key)
+llm = AzureOpenAI(openai_api_base=openai_api_base , model=openai_model, temperature=0.1, verbose=True, deployment_name=openai_model, openai_api_key=openai_api_key)
+
+st.title("🦜🔗🤗 What would you like to know?")
+st.write("This sample uses **Azure OpenAI** and **Bing Search**")
+# Create a text input box for the user
+prompt = st.text_input('Input your prompt here: ex. what are the ingredients for fortify alchemy potion')
+website = st.text_input('Input the web site to search: ex. https://en.uesp.net/wiki/Skyrim:Potions. If empty, all of web is searched.')
+
+# If the user hits enter
+if len(prompt) > 0:
+    with get_openai_callback() as cb:
+        try:
+            # Then pass the prompt to the LLM
+            store = searchweb(website, prompt)
+            # Create vectorstore info object - metadata repo?
+            vectorstore_info = VectorStoreInfo(
+                name="sou",
+                description="sou folder",
+                vectorstore=store
+            )
+            # Convert the document store into a langchain toolkit
+            toolkit = VectorStoreToolkit(vectorstore_info=vectorstore_info, llm=llm)
+            # Add the toolkit to an end-to-end LC
+            agent_executor = create_vectorstore_agent(
+                llm=llm,
+                toolkit=toolkit,
+                verbose=True,
+            )
+            response = agent_executor.run(prompt)
+            # ...and write it out to the screen
+            st.write(response)
+            st.write(cb)
+        except Exception as e:
+            st.warning(e)
+            st.write("That was a difficult question!  I could choked on it!!  Can you please try again with rephrasing it a bit?")
+            st.write(cb)
+            print(e)
+    
+    # Find the relevant pages
+    search = store.similarity_search_with_score(prompt, k=4)
+    # Write out the first 
+    try:
+        st.write("This information was found in:")
+        for doc in search:
+            score = doc[1]
+            try:
+                page_num = doc[0].metadata['page']
+            except:
+                page_num = "txt snippets"
+            source = doc[0].metadata['source']
+            # With a streamlit expander  
+            with st.expander("Source: " + str(source) + " - Page: " + str(page_num) + "; Similarity Score: " + str(score) ):
+                st.write(doc[0].page_content)
+    except:
+        print("unable to get source document detail")

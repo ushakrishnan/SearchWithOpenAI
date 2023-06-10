@@ -11,6 +11,13 @@ This project will help you learn the basics to -
 
 Link to the video recording - https://youtu.be/VaShd-0UoGg
 
+# Features
+1. Clean up indexes, add your documents to store (options: FAISS / Chroma / both)
+2. Choose your OpenAI (options: OpenAI / Azure OpenAI)
+3. Q&A from the set of uploaded documents (options: FAISS / Chroma)
+4. Your own chatgpt (options: prompt engineer with your customized prompts)
+5. Search a specific website / whole web and feed to OpenAI for extracting informaiton (options: OpenAI / Azure OpenAI :: sample uses Bing Search)
+
 # Setup the sample
 To use the script, you will need to follow these steps:
 - Clone the repository via `git clone https://github.com/ushakrishnan/SearchWithOpenAI.git` and `cd SearchWithOpenAI` into the cloned repository.
@@ -28,7 +35,8 @@ Streamlit will spin up a page that will look like this
 <img src="/assets/start.gif" height=500>
 
 Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?)
-<img src="/assets/page.png" height=500>
+
+<img src="/assets/page.png" height=500> | <img src="/assets/qanda.gif" height=500> 
 
 The new feature - Your own ChatGPT will be as below
 <img src="/assets/chatgpt.gif" height=500>

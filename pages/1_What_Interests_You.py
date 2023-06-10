@@ -9,7 +9,6 @@ def aoai():
     show_pages(
         [
             Page("pages/0_Home.py", "Home", "🏠"),
-            #Page("pages/1_What_Interests_You.py", "What Interests You?", ":key:"),
             Section(name="Data Indexing Ops", icon=":notebook_with_decorative_cover:"),
             Page("pages/2_Upload_Documents.py", "Upload Documents", ":zap:"),
             Page("pages/30_Clean_Up_Chroma_and_FAISS.py", "Clean  up Indexes", ":collision:"),
@@ -21,6 +20,7 @@ def aoai():
             Section(name="OpenAI Searches", icon=":bulb:"),
             Page("pages/200_Q&A_with_Azure_Open_AI.py", "Q&A with Azure OpenAI", ":mag:"),
             Page("pages/230_Talk_with_Azure_Open_AI.py", "ChatGPT Agent - Azure OpenAI", ":robot_face:"),
+            Page("pages/240_Find_From_Website_AOAI.py", "Search Web and Open AI it!", ":earth_americas:"),
             Page("pages/5000_Feedback.py", "Feedback", ":mailbox_with_mail:", in_section=False),
         ]
     )
@@ -30,7 +30,6 @@ def aoi():
     show_pages(
         [
             Page("pages/0_Home.py", "Home", "🏠"),
-            #Page("pages/1_What_Interests_You.py", "What Interests You?", ":key:"),
             Section(name="Data Indexing Ops", icon=":notebook_with_decorative_cover:"),
             Page("pages/2_Upload_Documents.py", "Upload Documents", ":zap:"),
             Page("pages/30_Clean_Up_Chroma_and_FAISS.py", "Clean  up Indexes", ":collision:"),
@@ -42,6 +41,7 @@ def aoi():
             Section(name="OpenAI Searches", icon=":bulb:"),
             Page("pages/100_Q&A_with_Open_AI.py", "Q&A with OpenAI", ":mag:"),
             Page("pages/130_Talk_with_Open_AI.py", "ChatGPT Agent - OpenAI", ":robot_face:"),
+            Page("pages/140_Find_From_Website_AOI.py", "Search Web and Open AI it!", ":earth_americas:"),
             Page("pages/5000_Feedback.py", "Feedback", ":mailbox_with_mail:", in_section=False),
         ]
     )
