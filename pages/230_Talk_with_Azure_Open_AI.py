@@ -67,7 +67,7 @@ with textcontainer:
     if prompt:
         with get_openai_callback() as cb:
             conversation_string = get_conversation_string()
-            response = conversation.predict(input=prompt)
+            response = conversation.predict(input=prompt + " and stop when you know the answer")
             st.write(cb)
         st.session_state.requests.append(prompt)
         st.session_state.responses.append(response) 

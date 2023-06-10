@@ -75,7 +75,7 @@ if len(prompt) > 0:
     with get_openai_callback() as cb:
         try:
             # Then pass the prompt to the LLM
-            response = agent_executor.run(prompt)
+            response = agent_executor.run(prompt + " and stop when you know the answer")
             # ...and write it out to the screen
             st.write(response)
             st.write(cb)

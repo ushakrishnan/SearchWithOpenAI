@@ -30,7 +30,7 @@ openai_model =  os.environ["AOAI_OPENAI_API_COMP_MODEL"]
 
 # Create instance of OpenAI LLM
 #llm = AzureOpenAI(openai_api_base=openai_api_base , model="text-davinci-003", temperature=0.1, verbose=True, deployment_name="text-davinci-003", openai_api_key=openai_api_key)
-llm = AzureOpenAI(openai_api_base=openai_api_base , model=openai_model, temperature=0.1, verbose=True, deployment_name=openai_model, openai_api_key=openai_api_key)
+llm = AzureOpenAI(request_timeout=120, openai_api_base=openai_api_base , model=openai_model, temperature=0.1, verbose=True, deployment_name=openai_model, openai_api_key=openai_api_key)
 
 st.title("🦜🔗🤗 What would you like to know?")
 st.write("This sample uses **Azure OpenAI** and **Bing Search**")
@@ -56,10 +56,9 @@ if len(prompt) > 0:
             agent_executor = create_vectorstore_agent(
                 llm=llm,
                 toolkit=toolkit,
-                verbose=True,
-                max_iterations=2
+                verbose=True
             )
-            response = agent_executor.run(prompt)
+            response = agent_executor.run(prompt + " and stop when you know the answer")
             # ...and write it out to the screen
             st.write(response)
             st.write(cb)
