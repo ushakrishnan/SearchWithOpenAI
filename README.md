@@ -21,18 +21,19 @@ Link to the video recording - https://youtu.be/VaShd-0UoGg
 ## Samples and Fetures:
 
 ### Choose your OpenAI 
+You can choose between OpenAI and Azure OpenAI for running the samples.  Remember too update .env with keys and values. [Back to all features](#features)
 <img src="/assets/choice.gif" >
 
 ### Q and A from the set of uploaded documents
-Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?) [Back](#features)
+Now go ahead, and ask you questions about the two "State of the Union" speech pdfs and txt you had indexed (some ideas - when were the speeches made? What were the dates that the speeches were made? Summarize both speeches in 100 words or less. What did the president say about affordable care act?) [Back to all features](#features)
 <img src="/assets/qanda.gif"> 
 
 ### Your own chatgpt
-NEW Sample - Your own ChatGPT will be as below [Back](#features)
+NEW Sample - Your own ChatGPT will be as below [Back to all features](#features)
 <img src="/assets/chatgpt.gif">
 
 ### Search web for information
-New Sample - search your own website of the whole web.   Feed the results to ChatGPT for summarizing or answering questions. [Back](#features)
+New Sample - search your own website of the whole web.   Feed the results to ChatGPT for summarizing or answering questions. [Back to all features](#features)
 <img src="/assets/searchweb.gif">
 
 # Setup the sample
