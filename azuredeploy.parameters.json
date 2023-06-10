@@ -9,7 +9,7 @@
             "value": "B1"
         },
         "linuxFxVersion": {
-            "value": "PYTHON|3.11.2"
+            "value": "PYTHON|3.7"
         },
         "repoUrl": {
             "value": "https://github.com/ushakrishnan/SearchWithOpenAI.git"
