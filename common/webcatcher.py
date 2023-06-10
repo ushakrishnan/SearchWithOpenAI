@@ -22,8 +22,8 @@ def searchweb(site = "", query=""):
     loader = WebBaseLoader(urls)
     raw_documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200,
+        chunk_size=500,
+        chunk_overlap=20,
     )
     documents = text_splitter.split_documents(raw_documents)
 

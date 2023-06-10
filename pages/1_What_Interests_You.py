@@ -17,7 +17,7 @@ def aoai():
             Page("pages/20_Query_ChromaDB.py", "Query Chroma Datastore", ":green_book:"),
             Page("pages/25_Query_FAISS.py", "Query FAISS Indexes", ":orange_book:"),
             Page("pages/40_EmbeddingsSearch_Chroma_and_FAISS.py", "Embedding Search - Chroma & FAISS", ":blue_book:"),
-            Section(name="OpenAI Searches", icon=":bulb:"),
+            Section(name="Azure OpenAI Searches", icon=":bulb:"),
             Page("pages/200_Q&A_with_Azure_Open_AI.py", "Q&A with Azure OpenAI", ":mag:"),
             Page("pages/230_Talk_with_Azure_Open_AI.py", "ChatGPT Agent - Azure OpenAI", ":robot_face:"),
             Page("pages/240_Find_From_Website_AOAI.py", "Search Web and Open AI it!", ":earth_americas:"),

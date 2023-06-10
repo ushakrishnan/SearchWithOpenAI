@@ -57,8 +57,7 @@ if len(prompt) > 0:
                 llm=llm,
                 toolkit=toolkit,
                 verbose=True,
-                max_iterations=2, 
-                early_stopping_method="generate"
+                max_iterations=2
             )
             response = agent_executor.run(prompt)
             # ...and write it out to the screen
