@@ -66,7 +66,7 @@ def addtostorepdf(folder_name, collection_name='db', persist_directory="db/"):
 
 def addtostoretxt(folder_name, collection_name='db', persist_directory="db/"):
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    loader = DirectoryLoader(folder_name + "/", glob="**/*.txt",loader_cls=TextLoader, silent_errors=True)
+    loader = DirectoryLoader(folder_name + "/", glob="**/*.txt",loader_cls=TextLoader, silent_errors=False)
     pages = loader.load()
     print("Number of TXT documents to be indexed: " + str(len(pages)))
     if len(pages) > 0:

@@ -1,6 +1,7 @@
 langchain==0.0.195
 streamlit==1.23.1
 openai==0.27.7
+beautifulsoup4==4.12.2
 chromadb==0.3.23
 tiktoken==0.3.3
 pypdf==3.8.1
