@@ -1,25 +1,12 @@
 #!/usr/bin/env python3
-from dotenv import load_dotenv
-
-# Load default environment variables (.env)
-load_dotenv()
-
 # Import os to set API key
 import os
+# Bring in streamlit for UI/app interface
+import streamlit as st
 # Import OpenAI as main LLM service
 from langchain.llms import OpenAI
 from langchain.callbacks import get_openai_callback
-
-# Bring in streamlit for UI/app interface
-import streamlit as st
-
-# Import PDF document loaders...there's other ones as well!
-from langchain.document_loaders import PyPDFLoader
-# Import chroma as the vector store 
-from langchain.vectorstores import Chroma
-
-from common.funs import getfromstore, getfaissdata
-
+from common.funs import getfaissdata
 # Import vector store stuff
 from langchain.agents.agent_toolkits import (
     create_vectorstore_agent,
@@ -27,6 +14,9 @@ from langchain.agents.agent_toolkits import (
     VectorStoreInfo
 )
 from st_pages import add_indentation
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
 
 add_indentation()
 
@@ -36,7 +26,7 @@ openai_api_base = os.environ["OPENAI_API_BASE"] = os.environ["OAI_OPENAI_API_BAS
 openai_api_key = os.environ["OPENAI_API_KEY"] = os.environ["OAI_OPENAI_API_KEY"]
 
 # Create instance of OpenAI LLM
-llm = OpenAI(temperature=0.1, verbose=True, model="text-davinci-002", openai_api_base=openai_api_base,  openai_api_key=openai_api_key )
+llm = OpenAI(temperature=0.1, verbose=True, model="text-davinci-002", openai_api_base=openai_api_base, openai_api_key=openai_api_key )  # noqa: E501
 
 #you can choose the index you would like to use by choosing from the two options below
 #store = getfromstore(collection_name="sou_coll")

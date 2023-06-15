@@ -19,6 +19,7 @@ def aoai():
             Page("pages/40_EmbeddingsSearch_Chroma_and_FAISS.py", "Embedding Search - Chroma & FAISS", ":blue_book:"),
             Section(name="Azure OpenAI Searches", icon=":bulb:"),
             Page("pages/200_Q&A_with_Azure_Open_AI.py", "Q&A with Azure OpenAI", ":mag:"),
+            Page("pages/210_Q&A_with_AOI_ACS_Kusto.py", "Q&A with AOAI ACS Kusto", ":mag:"),
             Page("pages/230_Talk_with_Azure_Open_AI.py", "ChatGPT Agent - Azure OpenAI", ":robot_face:"),
             Page("pages/240_Find_From_Website_AOAI.py", "Search Web and Open AI it!", ":earth_americas:"),
             Page("pages/5000_Feedback.py", "Feedback", ":mailbox_with_mail:", in_section=False),

@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-import sys
-from dotenv import load_dotenv
-
-# Load default environment variables (.env)
-load_dotenv()
 
 # Import os to set API key
 import os
@@ -14,12 +9,7 @@ from langchain.callbacks import get_openai_callback
 # Bring in streamlit for UI/app interface
 import streamlit as st
 
-# Import PDF document loaders...there's other ones as well!
-from langchain.document_loaders import PyPDFLoader
-# Import chroma as the vector store 
-from langchain.vectorstores import Chroma
-
-from common.funs import getfromstore, getfaissdata
+from common.funs import getfaissdata
 
 # Import vector store stuff
 from langchain.agents.agent_toolkits import (
@@ -27,7 +17,12 @@ from langchain.agents.agent_toolkits import (
     VectorStoreToolkit,
     VectorStoreInfo
 )
+
 from st_pages import add_indentation
+
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
 
 add_indentation()
 

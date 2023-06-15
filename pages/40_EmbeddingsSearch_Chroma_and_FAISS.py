@@ -1,22 +1,11 @@
 #!/usr/bin/env python3
-from dotenv import load_dotenv
-
-# Load default environment variables (.env)
-load_dotenv()
-
-# Import os to set API key
-import os
-# Import OpenAI as main LLM service
-from langchain.llms import OpenAI
-
 # Bring in streamlit for UI/app interface
 import streamlit as st
-
-# Import PDF document loaders...there's other ones as well!
-from langchain.document_loaders import PyPDFLoader
-
 from common.funs import getfromstore, getfaissdata
 from st_pages import add_indentation
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
 
 add_indentation()
 
@@ -31,7 +20,7 @@ if len(prompt) > 0:
     search = store.similarity_search_with_score(prompt,k=2)
     # Write out the first 
     try:
-        st.write("Store - Similarity Search with Score:")
+        st.write("Chroma Store - Similarity Search with Score:")
         for doc in search:
             score = doc[1]
             try:
@@ -40,7 +29,7 @@ if len(prompt) > 0:
                 page_num = "txt snippets"
             source = doc[0].metadata['source']
             # With a streamlit expander  
-            with st.expander("Source: " + str(source) + " - Page: " + str(page_num) + "; Similarity Score: " + str(score) ):
+            with st.expander("Source: " + str(source) + " - Page: " + str(page_num) + "; Similarity Score: " + str(score) ):  # noqa: E501
                 st.write(doc[0].page_content)
     except:
         print("unable to get source document detail")

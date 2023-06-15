@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-from dotenv import load_dotenv
-# Load default environment variables (.env)
-load_dotenv()
 # Import os to set API key
 import os
 # Import OpenAI as main LLM service
@@ -18,6 +14,11 @@ from langchain.agents.agent_toolkits import (
     VectorStoreInfo
 )
 from st_pages import add_indentation
+
+#!/usr/bin/env python3
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
 
 add_indentation()
 

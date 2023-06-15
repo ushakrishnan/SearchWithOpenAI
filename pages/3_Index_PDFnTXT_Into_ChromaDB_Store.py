@@ -1,6 +1,6 @@
 # Bring in streamlit for UI/app interface
 import streamlit as st
-from common.funs import addtostorepdf, addtostoretxt, getfromstore, getfromacs
+from common.funs import addtostorepdf, addtostoretxt, getfromstore, getfromacs, add_docs_to_kusto
 from st_pages import add_indentation
 import  os
 
@@ -17,5 +17,11 @@ def start_capture():
     store = getfromstore(collection_name="sou_coll")
     st.write(store.get(["metadatas"]))
 
+def start_embed_to_kusto():
+    add_docs_to_kusto()
+
 if st.button("💡 Index documents in folder to ChromaDB"):
     st.write(start_capture())
+
+if st.button("💡 Index documents in Azure Cognitive Services to Kusto"):
+    st.write(start_embed_to_kusto())

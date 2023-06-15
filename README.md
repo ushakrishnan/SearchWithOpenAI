@@ -13,7 +13,7 @@ Link to the video recording - https://youtu.be/VaShd-0UoGg
 
 # Deployment
 
-[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fushakrishnan%2FSearchWithOpenAI%2Fmain%2Fazuredeploy.json)
+[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fushakrishnan%2FSearchWithOpenAI%2Fmain%2Fdeploytoazure%2Fazuredeploy.json)
 
 # Features
 1. Clean up indexes, add your documents to store (options: FAISS / Chroma / both)

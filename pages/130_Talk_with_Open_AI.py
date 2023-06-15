@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-from dotenv import load_dotenv
-# Load default environment variables (.env)
-load_dotenv()
 # Import os to set API key
 import os
 from langchain.chat_models import ChatOpenAI
@@ -17,8 +14,10 @@ import streamlit as st
 from streamlit_chat import message
 from langchain.callbacks import get_openai_callback
 from common.funs import get_conversation_string
-
 from st_pages import add_indentation
+from dotenv import load_dotenv
+# Load default environment variables (.env)
+load_dotenv()
 
 styl = "<style>.row-widget.stTextInput{position: fixed; bottom: 3rem;}</style>"
 
