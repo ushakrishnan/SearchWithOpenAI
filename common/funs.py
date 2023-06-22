@@ -211,10 +211,16 @@ def getfromkusto(prompt):
     kusto_auth_app_tenant_id = os.environ["KUSTO_AUTH_APP_TENANT_ID"]
     connection_string = KustoConnectionStringBuilder.with_aad_application_key_authentication(kusto_cluster, kusto_auth_app_id, kusto_auth_app_key,kusto_auth_app_tenant_id)
     kusto_client = KustoClient(connection_string)
-    kusto_query = f"{kusto_table_name} | extend similarity = series_cosine_similarity_fl(dynamic('"+str(searchedEmbedding)+"'),Embeddings,1,1) | top 3 by similarity desc "
+    kusto_query = f"{kusto_table_name} | extend similarity = series_cosine_similarity_fl(dynamic('"+str(searchedEmbedding)+"'),Embeddings,1,1) | top 10 by similarity desc "
     # print(kusto_query)
     response = kusto_client.execute(kusto_database, kusto_query)
     df = dataframe_from_result_table(response.primary_results[0])
     content = "\n".join(df['Content'])
-    print(df)
     return content
+
+def experimentalchunktxt(value, collection_name='chat', persist_directory="chat/"):
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=10)
+    docs = text_splitter.split_text(value)
+    store = FAISS.from_texts(docs,embedding=embeddings)
+    return(store)
