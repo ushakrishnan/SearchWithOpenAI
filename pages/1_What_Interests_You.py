@@ -43,6 +43,8 @@ def aoi():
             Page("pages/100_Q&A_with_Open_AI.py", "Q&A with OpenAI", ":mag:"),
             Page("pages/130_Talk_with_Open_AI.py", "ChatGPT Agent - OpenAI", ":robot_face:"),
             Page("pages/140_Find_From_Website_AOI.py", "Search Web and Open AI it!", ":earth_americas:"),
+            Page("pages/150_FLARE_AOI.py", "Search with Forward-Looking Active RAG (FLARE)", ":earth_americas:"),
+            Page("pages/160_Self_Ask_AOI.py", "Search with Self-Ask prompting", ":earth_americas:"),
             Page("pages/5000_Feedback.py", "Feedback", ":mailbox_with_mail:", in_section=False),
         ]
     )

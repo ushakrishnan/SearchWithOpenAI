@@ -1,5 +1,14 @@
 # 🦜🔗🤗  Search with LangChain, HuggingFace embeddings, Chroma, FAISS, Azure OpenAI and OpenAI
 
+Update 7/31 - Two new samples added for OpenAI
+- Forward-Looking Active REtrieval augmented generation (FLARE)
+- - About: https://arxiv.org/pdf/2305.06983.pdf
+- - Sample: /SearchWithOpenAI/pages/150_FLARE_AOI.py
+- Self-Ask prompting (building on Chain of Thought COT)
+- - About: https://the-decoder.com/new-prompt-method-lets-gpt-3-answer-questions-better/
+- - Sample: /SearchWithOpenAI/pages/160_Self_Ask_AOI.py
+
+
 This project will help you learn the basics to -
 - Index multiple documents in a repository using HuggingFace embeddings.
 - Save the indexes in Chroma &  FAISS for recall.
