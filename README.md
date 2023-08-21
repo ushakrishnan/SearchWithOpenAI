@@ -7,6 +7,7 @@ Update 7/31 - Two new samples added for OpenAI
 - Self-Ask prompting (building on Chain of Thought COT)
 - - About: https://the-decoder.com/new-prompt-method-lets-gpt-3-answer-questions-better/
 - - Sample: /SearchWithOpenAI/pages/160_Self_Ask_AOI.py
+
 Learn more about Direct Ask, Chain of Thought, Self Ask, and Forward Looking Active REtrieval aumented generation (FLARE) - [Medium article - 7 min easy read] (https://medium.com/@andavan/interacting-with-large-language-models-a-survey-of-techniques-ddb6829fa0be)
 
 This project will help you learn the basics to -
